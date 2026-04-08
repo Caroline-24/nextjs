@@ -12,10 +12,10 @@ datasource db {
   provider = "postgresql"
 }
 
-model User {
-  id    String @id @default(uuid())
-  name  String
-  major String
-  year  Int
-  gpa   Float
+model User{
+  id String @id @default(cuid())
+  email String @unique
+  password String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
